@@ -12,7 +12,7 @@ A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predict
 
 *In addition, Web service and Machine Learning Python packages are required to install according to the following instructions:
 
-2. Install Web service Python packages
+2. Install Web Service Python packages
 * pip install 
   * Flask=2.0.2
   * Flask-WTF=1.0.0
