@@ -4,13 +4,13 @@ A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predict
 ## Set up environment
 
 1. Our Conda environment was created based on NetSurfP-3.0's Conda environment (Nucleic Acids Res,2022).
-*Download links(Linux 3.0):https://services.healthtech.dtu.dk/service.php?NetSurfP-3.0
-	* conda env create --file environment.yml
-	* conda activate nsp3
-	* python setup.py install
-	* pip3 install -r requirements.txt
+	*Download links(Linux 3.0):https://services.healthtech.dtu.dk/service.php?NetSurfP-3.0
+		* conda env create --file environment.yml
+		* conda activate nsp3
+		* python setup.py install
+		* pip3 install -r requirements.txt
 
-In addition, Web service and Machine Learning Python packages are installed according to the following instructions:
+In addition, Web service and Machine Learning Python packages are required to install according to the following instructions:
 
 2. Install Web service Python packages
 	* pip install 
