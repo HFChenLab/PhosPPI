@@ -12,15 +12,15 @@ A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predict
 In addition, Web service and Machine Learning Python packages are installed according to the following instructions:
 
 2. Install Web service Python packages
-	pip install 
-		-Flask=2.0.2
-		-Flask-WTF=1.0.0
-		-WTForms=3.0.1
-		-Flask-Bootstrap=3.3.7.1
-		-Jinja2=3.0.3
-		-pandas=1.4.1
-		-gunicorn=20.1.0
-		-plotnine=0.8.0
+	* pip install 
+		* Flask=2.0.2
+		* Flask-WTF=1.0.0
+		* WTForms=3.0.1
+		* Flask-Bootstrap=3.3.7.1
+		* Jinja2=3.0.3
+		* pandas=1.4.1
+		* gunicorn=20.1.0
+		* plotnine=0.8.0
 		
 		
 3. Other packages no need to install (*latest version up to 2022-02-16*; best to install them as network connection from China may fail)
@@ -31,6 +31,6 @@ In addition, Web service and Machine Learning Python packages are installed acco
 4. To perform PSI-BLAST to obtain PSSM features, ncbi-blast-2.9.0+-x64-linux are also needed to install.
 
 5. Machine Learning Python packages
-	pip install	
+	* pip install	
 		-
 
