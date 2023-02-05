@@ -1,5 +1,5 @@
 # PhosPPI
-A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predicting the Effects of Phosphorylation on Protein-Protein Interactions** created by *Xiaokun Hong, Jiyang LV*
+A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predicting the Effects of Phosphorylation on Protein-Protein Interactions** created by *Xiaokun Hong, Jiyang Lv*
 
 ## Set up environment
 
