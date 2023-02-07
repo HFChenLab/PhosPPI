@@ -1,0 +1,221 @@
+{# Jinja web template engine which will be redered by Flask #}
+{# Template Inheritance #}
+{% extends "mybase.html" %}
+
+{% block content -%}
+<script type="text/jscript">
+	let $a = document.querySelector('.menuItem.active')
+	if($a){$a.classList.remove('active')}
+	document.querySelector('#home').classList.add('active')
+
+	function compute3(){
+	document.getElementById("P1").value=">sp|P55327|TPD52_HUMAN Tumor protein D52 OS=Homo sapiens OX=9606 GN=TPD52 PE=1 SV=2\nMDCREMDLYEDYQSPFDFDAGVNKSYLYLSPSGNSSPPGSPTLQKFGLLRTDPVPEEGED\nVAATISATETLSEEEQEELRRELAKVEEEIQTLSQVLAAKEKHLAEIKRKLGINSLQELK\nQNIAKGWQDVTATSAYKKTSETLSQAGQKASAAFSSVGSVITKKLEDVKNSPTFKSFEEK\nVENLKSKVGGTKPAGGDFGEVLNSAANASATTTEPLPEKTQESL";
+	document.getElementById("SITE").value="9,30,68,220";
+	document.getElementById("P2").value=">sp|P55327|TPD52_HUMAN Tumor protein D52 OS=Homo sapiens OX=9606 GN=TPD52 PE=1 SV=2\nMDCREMDLYEDYQSPFDFDAGVNKSYLYLSPSGNSSPPGSPTLQKFGLLRTDPVPEEGED\nVAATISATETLSEEEQEELRRELAKVEEEIQTLSQVLAAKEKHLAEIKRKLGINSLQELK\nQNIAKGWQDVTATSAYKKTSETLSQAGQKASAAFSSVGSVITKKLEDVKNSPTFKSFEEK\nVENLKSKVGGTKPAGGDFGEVLNSAANASATTTEPLPEKTQESL";
+	document.getElementById("jobs").value="TEST";
+	document.getElementById("emails").value="hxk33461@foxmail.com";
+	
+	}
+
+	function compute4(){
+	document.getElementById("P1").value="";
+	document.getElementById("SITE").value="";
+	document.getElementById("P2").value="";
+	document.getElementById("jobs").value="";
+	document.getElementById("emails").value="";
+	
+
+	}
+</script>
+
+<style>
+  .center{
+  text-align:justify;
+  text-align-last: justify;
+}
+span{
+  display:inline-block;
+  width:100%;
+}
+</style>
+
+<style>
+	#P1{
+	font-size:12px;
+	height:180px;
+	}
+	#P2{
+	font-size:12px;
+	height:180px;
+	}	
+	
+	#SITE{
+	font-size:12px;
+	height:180px;
+	}	
+
+</style>
+
+
+
+
+
+
+
+<div class="container-fluid">
+  <form class="form form-horizontal" method="POST" action="/Home" role="form" enctype="multipart/form-data" >
+      <div class="row">
+          <div class="col-md-4">
+              <br>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 offset-md-5">
+          <h3>PhosPPI Web Server</h3>
+<!--          <p class="lead">Post translational modification (<strong><font color=red>PTM</font></strong>) is an <strong>important</strong> biochemical process, which consists of six main types: <strong><font color=blue>phosphorylation</font></strong> (Phos), <strong><font color=blue>acetylation</font></strong> (Ac), <strong><font color=blue>methylation</font></strong> (Me), <strong><font color=blue>sumoylation</font></strong> (Sumo), <strong><font color=blue>ubiquitylation</font></strong> (Ub) and <strong><font color=blue>glycosylation</font></strong> (Glyco). PTM is involved in various cell signaling pathways and biological processes. However, although several databases have stored thousands of PTM sites, a resource for PTM on protein-protein interactions (<strong>PPI</strong>) still remains to be developed. </p>-->
+        </div>		
+      </div>
+	
+	  <div class="row">
+        <div class="col-md-4">
+             <br> 
+			 <br>
+         </div>
+      </div>
+   
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h6 class="center"><strong><strong><font color="#ffc107">PhosPPI</font></strong> is a Sequence-based Machine Learning method for predicting the effect of <strong><font color="#0000FF">Phos</font></strong>phorylation on <strong><font color="#0000FF">P</font></strong>rotein-<strong><font color="#0000FF">P</font></strong>rotein <strong><font color="#0000FF">I</font></strong>nteractions (PPI). Compare with other competing methods, <strong><font color="#ffc107">PhosPPI</font></strong> does not require PDB complex and interfacial phosphorylation sites as input. In addition, <strong><font color="#ffc107">PhosPPI</font></strong> achieved better predictive performances (<strong><font color="#0000FF">Accuracy</font></strong> and <strong><font color="#0000FF">AUC</font></strong>) in two independent validation sets.<br> Researchers can input two interacting protein sequences and designate one or multiple phosphorylation sites (<strong><font color=green>S</font></strong>erine, <strong><font color=green>T</font></strong>hreonine, <strong><font color=green>T</font></strong>yrosine), this Web Server will return following predictive results, including:<br>(1)Site-specific Phosphorylation has <strong><font color="#FF0000">no effect</font></strong> on PPI; (2)Site-specific Phosphorylation increases the protein-protein affinity (<strong><font color="#FF0000">Enhance</font></strong>); (3)Site-specific Phosphorylation decreases the protein-protein affinity (<strong><font color="#FF0000">Inhibit</font></strong>).</h6>
+        </div>		
+      </div>	    
+	
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <br>
+        </div>		
+      </div>	
+
+	  
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h6 class="center"><strong>Citation:</strong></h6>
+        </div>		
+      </div>	  
+
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <br>
+        </div>		
+      </div>	
+	
+	
+
+
+
+      <div class="row">
+        <div class="col-md-3 offset-md-1">
+           <h6 class="center">Input phosphorylated protein sequence in <strong>FASTA</strong> format (P1).<br>(<strong><font color=green>ONLY 20 Standard amino acids are permitted</font></strong>).<br>Standard amino acids: ARNDC QEGHI LKMFP STWYV</h6>
+        </div>
+		
+        <div class="col-md-2 offset-md-1">
+            <h6 class="center">Define the <strong>positions</strong> of phosphorylation sites (Serine, Threonine, Tyrosine) of P1 protein) (Separated by <strong>commas</strong>).</h6>
+        </div>	
+
+        <div class="col-md-3 offset-md-1">
+		   <h6 class="center">Input interacting protein sequence in <strong>FASTA</strong> format (P2).<br>(<strong><font color=green>ONLY 20 Standard amino acids are permitted</font></strong>).<br>Standard amino acids: ARNDC QEGHI LKMFP STWYV</h6>
+
+        </div>	
+	  </div>
+
+
+
+      <div class="row">
+        <div class="col-md-3 offset-md-1 no-label">
+            <textarea class="form-control autocomplete" id="P1" name="P1" type="text" placeholder=">Protein name&#10;Protein sequence"></textarea>
+        </div>
+		
+        <div class="col-md-2 offset-md-1 no-label">
+            <textarea class="form-control autocomplete" id="SITE" name="SITE" type="text" placeholder="Number1,Number2,Number3..."></textarea>
+        </div>	
+
+        <div class="col-md-3 offset-md-1 no-label">
+            <textarea class="form-control autocomplete" id="P2" name="P2" type="text" placeholder=">Protein name&#10;Protein sequence"></textarea>
+        </div>			
+      </div>		
+
+
+      <div class="row">
+        <div class="col-md-4 offset-md-1 no-label">
+            <p>Or upload <strong>FASTA</strong> file <input type="file" name="file1" id="file1"/></p>   
+        </div>
+
+
+
+		
+		
+		<div class="col-md-4 offset-md-3 no-label">
+
+           <p>Or upload <strong>FASTA</strong> file <input type="file" name="file3" id="file3"/></p>
+
+		</div>
+		
+	  </div>
+
+
+
+
+
+
+
+      <div class="row">
+		
+		<div class="col-md-4 offset-md-1 no-label"">
+           <p>Job name <input class="form-control autocomplete" id="jobs" name="jobs" type="text" placeholder="*required"> </p>
+        </div>
+
+
+		<div class="col-md-4 offset-md-1 no-label"">
+            <p>&#9993 Email address<input class="form-control autocomplete" id="emails" name="emails" type="text" placeholder="*required"></p>
+        </div>
+				
+	  </div>
+
+
+	  <div class="row">
+        <div class="col-md-4 offset-md-1">
+              <br>
+			  <br>
+			  <font color="red"><h4>{{XX}}</h4></font>
+			  <br>
+			  
+         </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-1 offset-md-1" >
+              <input class="btn btn-success" id="example3" name="example3" type="button" value="Example" onClick="compute3()" style="background-color:#117341;border-color:#117341">
+          </div>
+           <div class="col-md-1" >
+              <a href="https://phosppi.sjtu.edu.cn/"><input class="btn btn-success" id="example4" name="example4" type="button" value="Clear" style="background-color:#117341;border-color:#117341"></a>
+          </div>
+           <div class="col-md-1" >
+             <input class="btn btn-success" id="submit" name="submit" type="submit" value="Search" style="background-color:#F39925;border-color:#F39925">
+          </div>
+		  
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <br>
+			<br>
+			<br>
+        </div>		
+      </div>	
+
+
+
+</form>
+</div>
+  
+{%- endblock content %}

@@ -1,0 +1,131 @@
+{# Jinja web template engine which will be redered by Flask #}
+{# Template Inheritance #}
+{% extends "mybase.html" %}
+
+
+{% block content -%}
+
+<!--<style type="text/css">-->
+<!--a:link,a:visited{-->
+<!-- text-decoration:none;  /*超链接无下划线*/-->
+<!--}-->
+<!--a:hover{-->
+<!-- text-decoration:underline;  /*鼠标放上去有下划线*/-->
+<!--}-->
+<!--</style>-->
+<script>
+	let $a = document.querySelector('.menuItem.active')
+	if($a){$a.classList.remove('active')}
+	document.querySelector('#queue').classList.add('active')
+</script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.dataTables.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.dataTables.min.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dataTables.js') }}"></script>
+
+
+<div class="container-fluid">
+
+   <div class="row">
+   <div class="col-md-10 offset-md-1">
+     <br>
+       <h3>&#8251; Queue</h3>
+       <p class="lead"><strong>Users can easily track submitted jobs.<br>By clicking on the URL in the mailbox, users can easily retrieve the results!</strong></p>
+
+   </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-10 offset-md-1">
+          <table id="example" class="row-border hover order-column" style="width:100%">
+           <thead>
+              <tr>
+                  <th>Job number</th>
+                  <th>Job name</th>
+                  <th>Status</th>
+                  <th>Submitted time</th>
+              </tr>
+           </thead>
+           <tbody>
+            {% for foo in query %}
+              <tr>
+                  <td>{{ foo.job_number2}}</td>
+                  <td>{{ foo.job_name }}</td>
+                  <td>{{ foo.status }}</td>
+                  <td>{{ foo.submitted_time }}</td>
+
+          
+		  </tr>
+           {% endfor %}
+           </tbody>
+
+           </table>
+<script>
+$(document).ready(function() {
+    var table = $('#example').DataTable({"createdRow": function (row, data, dataIndex) {
+          // row : tr dom
+          // data: row data
+          // dataIndex:row data's index
+          if (data[2] == "completed") {
+              $('td', row).css("color", "#1E90FF");
+          }
+          if (data[2] == "waiting") {
+              $('td', row).css("color", "#008837");
+          }
+          if (data[2] == "running") {
+              $('td', row).css("color", "#FF0000");
+          }
+
+
+
+      },});
+
+
+    $('#example tbody')
+        .on( 'mouseenter', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+            $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+        } );
+} );
+</script>
+
+
+     </div>
+   </div>
+
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+  
+{%- endblock content %}

@@ -1,0 +1,473 @@
+  {# Jinja web template engine which will be redered by Flask #}
+{# Template Inheritance #}
+{% extends "mybase.html" %}
+
+{% block content -%}
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.dataTables.css') }}">-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.dataTables.min.css') }}">
+
+<!--<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>-->
+<!--<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dataTables.js') }}"></script>-->
+<script>
+	let $a = document.querySelector('.menuItem.active')
+	if($a){$a.classList.remove('active')}
+	document.querySelector('#home').classList.add('active')
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/3Dmol.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+
+
+<div class="container-fluid">
+   <div class="row">
+      <div class="col-md-4">
+        <br>
+       </div>
+   </div>
+  
+   <div class="row">
+      <div class="col-md-3 offset-md-5">
+         <h3>PhosPPI Web Server</h3>
+<!--          <p class="lead">Post translational modification (<strong><font color=red>PTM</font></strong>) is an <strong>important</strong> biochemical process, which consists of six main types: <strong><font color=blue>phosphorylation</font></strong> (Phos), <strong><font color=blue>acetylation</font></strong> (Ac), <strong><font color=blue>methylation</font></strong> (Me), <strong><font color=blue>sumoylation</font></strong> (Sumo), <strong><font color=blue>ubiquitylation</font></strong> (Ub) and <strong><font color=blue>glycosylation</font></strong> (Glyco). PTM is involved in various cell signaling pathways and biological processes. However, although several databases have stored thousands of PTM sites, a resource for PTM on protein-protein interactions (<strong>PPI</strong>) still remains to be developed. </p>-->
+       </div>		
+   </div>
+	
+   <div class="row">
+      <div class="col-md-4">
+            
+       </div>
+   </div>  
+
+
+   <div class="row">
+      <div class="col-md-10 offset-md-1">
+          <h3>Total <font color=red>{{nn}}</font> phosphorylation sites found! <font color=red>{{sitenumber}}</font> sites selected! </h3>
+       </div>
+   </div> 
+
+
+
+
+   <div class="row">
+      <div class="col-md-5 offset-md-1">
+             <h3>All results can be downloaded <a href="../../data/{{zipname}}" title="Download data"><font color=red>here</font></a></h3>   
+       </div>
+   </div>  
+
+
+   <div class="row">
+      <div class="col-md-5 offset-md-1">
+            <h3>Total running time: <font color=red>{{running_time}} </font>seconds</h3>  
+       </div>
+   </div>  
+
+  <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <h3 style="color:#E69F00">1.Statistics of phosphorylation sites of Phosphorylated protein</h3>
+      </div>
+  </div>
+
+   <div class="row">
+      <div class="col-md-4">
+              
+       </div>
+   </div>  
+
+
+
+<div class="row">
+   <div class="col-md-4 offset-md-4">
+
+     <div id="main3" style="height:300%"></div>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart3 = echarts.init(document.getElementById('main3'));
+
+      // 指定图表的配置项和数据
+      var option3 = {
+ tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c} ({d}%)',
+	textStyle:{fontSize:14,color:"black"},
+  },
+  toolbox: {
+    show: true,
+    feature: {
+      mark: { show: true },
+      dataView: { show: false, readOnly: false },
+      restore: { show: false },
+      saveAsImage: { show: true }
+    }
+  },
+  series: [
+    { name: 'Sites',
+      type: 'pie',
+      radius: [20, 125],
+      center: ['50%', '50%'],
+      roseType: 'area',
+      itemStyle: {
+        borderRadius: 8
+      },
+	  label: {
+              normal: {
+                              textStyle: {
+                                    color: 'black',	// 提示文字颜色
+                                    fontSize: 18		// 提示文字大小
+                              } 
+                        }
+                    },
+      data: [
+        { value: {{ns}}, name: 'S' },
+        { value: {{nt}}, name: 'T' },
+        { value: {{ny}}, name: 'Y' },
+      ]
+    }
+  ]
+      };
+
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart3.setOption(option3);
+
+
+    </script>
+     </div>
+   </div>
+
+
+
+
+   <div class="row">
+      <div class="col-md-4">
+             <br> 
+       </div>
+   </div>  
+
+
+
+<div class="row">
+<div class="col-md-10 offset-md-1">
+    <br>
+<h3 style="color:#56B4E9">2.Effect of Site-specific Phosphorylation on Protein-Protein Interaction</h3>
+<p class="lead"><strong>Score(range 0-1) stands for predictive confidence. Maximum 1 means complete fully confidence.</strong></p>
+
+<table id="data" class="hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>AA</th>
+                <th>Effect</th>
+                <th>Score</th>             
+            </tr>
+        </thead>
+		
+        <tbody>
+        {% for fooo in ww_list %}
+         <tr>
+		 
+         <td>{{ fooo.Position}}</td>
+         <td>{{ fooo.AA}}</td>       
+		 <td>{{ fooo.Effect}}</td>
+         <td>{{ fooo.Score}}</td>
+		 
+         </tr>
+        {% endfor %}
+        </tbody>
+
+</table>
+
+
+<script>
+$(document).ready( function () {
+    $('#data').DataTable( {
+    "createdRow": function (row, data, dataIndex) {
+          // row : tr dom
+          // data: row data
+          // dataIndex:row data's index
+          if (data[2] == "No effect") {
+              $('td', row).css("color", "#0000FF");
+          }
+          if (data[2] == "Enhance") {
+              $('td', row).css("color", "#008837");
+          }
+
+          if (data[2] == "Inhibit") {
+              $('td', row).css("color", "#A0632F");
+          }
+      },
+
+      dom: 'Bfrtip',
+      "scrollX": true,
+
+      buttons: [
+        'copy','csv','excel'
+    ]
+
+    } );
+} );
+</script>
+</div>
+</div>
+
+
+
+
+   <div class="row">
+      <div class="col-md-4">
+              <br>
+			  <br>
+       </div>
+   </div> 
+
+
+
+  <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <h3 style="color:#009E73">3.Secondary Structure Probability of Phosphorylated Protein</h3>
+        <p class="lead"><strong>The maximum of Probability of Alpha-Helix,Beta-strand and Coil indicates the Secondary Structure of Sites.</strong></p>
+      </div>
+  </div>
+
+
+  <div class="row">
+   <div class="col-md-10 offset-md-1">
+
+     <div id="main1" style="height:200%"></div>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart1 = echarts.init(document.getElementById('main1'));
+
+      // 指定图表的配置项和数据
+      var option1 = {
+          toolbox: {
+    　　feature: {
+    　　　　saveAsImage: {　}
+    　　}
+    },
+        title: {
+          text: ''
+        },
+        tooltip: {
+		trigger: 'axis'
+         },
+        legend: {
+        },
+        xAxis: {
+        name: 'Residues Number',
+        nameLocation:'center',
+        nameTextStyle:{
+       fontSize:16,// 字体大小
+       padding: 10,
+       color: '#000000',
+    },
+        data: {{A1}},
+        axisLabel: {
+        show: true,
+        textStyle: {
+        color: '#000000',
+   }}
+        },
+        grid:{
+        left:50,
+        right:25,
+        top:25,
+        bottom:50,
+        },
+        yAxis: {
+        name:'Probability for SS',
+        nameLocation:'center',
+        nameRotate: '90',
+        nameGap: 10,
+        nameTextStyle:{
+        fontSize:16,// 字体大小
+        padding: 20,
+        color: '#000000',
+    },
+         axisLabel: {
+         show: true,
+         textStyle: {
+         color: '#000000',
+         }}
+        },
+        series: [
+          {
+            name: 'Alpha-Helix',
+            type: 'line',
+            smooth: true,
+            data: {{B1}},
+          },
+		  
+          {
+            name: 'Beta-strand',
+            type: 'line',
+            smooth: true,
+            data: {{C1}},
+          },
+
+          {
+            name: 'Coil',
+            type: 'line',
+            smooth: true,
+            data: {{D1}},
+          },		  
+		  
+        ]
+      };
+
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart1.setOption(option1);
+
+
+    </script>
+     </div>
+   </div>
+
+
+
+
+
+
+
+
+   <div class="row">
+      <div class="col-md-4">
+         <br>
+		 <br>
+       </div>
+   </div>  
+
+
+  <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <h3 style="color:#0072B2">4.Absolute Surface Accessibility(ASA) of Phosphorylated Protein</h3>
+        <p class="lead"><strong>The value of ASA reflects the relative location of Sites on structure.</strong></p>
+		<p class="lead"><strong>Higher value reflects the 'exposed' location of high Probability. And the lower value reflects the 'buried' location of high Probability.</strong></p>
+      </div>
+  </div>
+
+
+  
+  <div class="row">
+   <div class="col-md-10 offset-md-1">
+
+     <div id="main2" style="height:200%"></div>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart2 = echarts.init(document.getElementById('main2'));
+
+      // 指定图表的配置项和数据
+      var option2 = {
+          toolbox: {
+    　　feature: {
+    　　　　saveAsImage: {　}
+    　　}
+    },
+        title: {
+          text: ''
+        },
+        tooltip: {
+		trigger: 'axis'
+         },
+
+        xAxis: {
+        name: 'Residues Number',
+        nameLocation:'center',
+        nameTextStyle:{
+       fontSize:16,// 字体大小
+       padding: 10,
+       color: '#000000',
+    },
+        data: {{E1}},
+        axisLabel: {
+        show: true,
+        textStyle: {
+        color: '#000000',
+   }}
+        },
+        grid:{
+        left:50,
+        right:25,
+        top:25,
+        bottom:50,
+        },
+        yAxis: {
+        name:'ASA (A2)',
+        nameLocation:'center',
+        nameRotate: '90',
+        nameGap: 10,
+        nameTextStyle:{
+        fontSize:16,// 字体大小
+        padding: 20,
+        color: '#000000',
+    },
+         axisLabel: {
+         show: true,
+         textStyle: {
+         color: '#000000',
+         }}
+        },
+        series: [
+          {
+            name: 'ASA',
+            type: 'line',
+            smooth: true,
+			color: '#C1232B',
+            data: {{F1}},
+			markPoint: {symbolSize:40,
+      data: {{ mm2|tojson }}
+      },
+          }		  		  		  
+        ]
+      };
+
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart2.setOption(option2);
+
+
+    </script>
+     </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="row">
+      <div class="col-md-4">
+         <br>
+		 <br>
+       </div>
+   </div> 
+
+  
+  
+  
+  
+</div>
+
+
+
+
+
+
+
+{%- endblock content %}

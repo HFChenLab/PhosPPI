@@ -1,0 +1,152 @@
+{# Jinja web template engine which will be redered by Flask #}
+{# Template Inheritance #}
+{% extends "mybase.html" %}
+
+{% block content -%}
+
+
+
+<style type="text/css">
+a:hover{
+color:#117341;
+text-decoration:underline;  
+}
+.ccc{
+text-decoration:underline;
+color:#117341;
+}
+.ddd{
+text-decoration:none;
+color:#117341;
+}
+</style>
+
+
+
+<style>
+ .center{
+  text-align:justify;
+  text-align-last: justify;
+  font-size: 16px;
+}
+span{
+  display:inline-block;
+  width:100%;
+}
+.lead2{
+font-size: 18px;
+}
+
+</style>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.dataTables.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.dataTables.min.css') }}">
+<script>
+	let $a = document.querySelector('.menuItem.active')
+	if($a){$a.classList.remove('active')}
+	document.querySelector('#help').classList.add('active')
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.dataTables.js') }}"></script>
+
+
+
+
+
+<div class="container-fluid">
+      <div class="row">
+           <div class="col-md-6 offset-md-1">
+            <br>
+             <h3>&#8251; Help</h3>
+            </div>
+      </div>
+      
+	  <div class="row">
+	    <div class="col-md-10 offset-md-1">
+		    <h3>1.Motivation</h3>
+			<p class="center"><strong>Phosphorylation</strong> is widely studied type of protein <strong>P</strong>ost-<strong>T</strong>ranlational <strong>M</strong>ofication(PTM), which mainly occurs at <font color=green><strong>Serine(S)</strong></font>, <font color=green><strong>Threonine(T)</strong></font>, <font color=green><strong>Tyrosine(Y)</strong></font> of protein sequence. Phosphorylation is involved in multiple signaling pathways and biological process. Abnormal phosphorylation status on protein (<font color=red><strong>Upregulated</strong></font>, <font color=red><strong>Downregulated</strong></font> or <font color=red><strong>Absence</strong></font>) could significantly influence protein function (such as <strong>P</strong>rotein-<strong>P</strong>rotein <strong>I</strong>nteraction), which further lead to severe diseases<sup>1,2,3,4,5,6</sup>. In previous work, we constructed <strong>PTMint</strong> database<sup>5</sup> by collecting <strong>complete experimental evidence</strong> of effect of six main PTM types (<strong>Phosphorylation</strong>, <strong>Acetylation</strong>, <strong>Methylation</strong>, <strong>Sumoylation</strong>, <strong>Ubiquitylation</strong> and <strong>Glycosylation</strong>) on PPI. Due to the <strong>limited experimental evidence</strong> of phosphorylation effect on PPI and <strong>great costs</strong> to experimentally identify new phosphorylation regulation evidence, therefore it is urgently need to develop a high-accuracy, user-friendly predictive method to help to explore the relationship among phosphorylation, PPI and diseases and develop targeted drugs. Here, based on <strong>PTMint</strong> database<sup>5</sup>, we developed a <font color=blue><strong>Sequence-based</strong></font> Machine Learning method (named <strong>PhosPPI</strong>) with <strong>high accuracy</strong> and <strong>AUC</strong> for predicting  the effect of <strong>Phos</strong>phorylation on <strong>P</strong>rotein-<strong>P</strong>rotein <strong>I</strong>nteractions.</p>
+			<p class="center">Reference:<br>
+			(1).Takala H et al. Beta2 integrin phosphorylation on Thr758 acts as a molecular switch to regulate 14-3-3 and filamin binding. <strong><i>Blood</i></strong>. 2008 Sep 1;112(5):1853-62. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/18550856/" target="_blank" class="ccc">18550856</a><br>
+			(2).Tan R et al. Nek7 Protects Telomeres from Oxidative DNA Damage by Phosphorylation and Stabilization of TRF1. <strong><i>Mol Cell</i></strong>. 2017 Mar 2;65(5):818-831.e5. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28216227/" target="_blank" class="ccc">28216227</a><br>
+			(3).Betts MJ et al. Mechismo: predicting the mechanistic impact of mutations and modifications on molecular interactions. <strong><i>Nucleic Acids Res</i></strong>. 2015 Jan;43(2):e10. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/25392414/" target="_blank" class="ccc">25392414</a><br>
+			(4).Betts MJ et al. Systematic identification of phosphorylation-mediated protein interaction switches. <strong><i>PLoS Comput Biol</i></strong>. 2017 Mar 27;13(3):e1005462. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/28346509/" target="_blank" class="ccc">28346509</a><br>
+			(5).Hong X et al. PTMint database of experimentally verified PTM regulation on protein-protein interaction. <strong><i>Bioinformatics</i></strong>. 2023 Jan 1;39(1):btac823. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/36548389/" target="_blank" class="ccc">36548389</a><br>			
+			(6).Hong X et al. Regulation Mechanism of β2 Integrin for the Binding of Filamin Revealed by Markov State Model. <strong><i>J Chem Inf Model</i></strong>. 2023 Jan 23;63(2):605-618.PMID:<a href="https://pubmed.ncbi.nlm.nih.gov/36607244/" target="_blank" class="ccc">36607244</a><br>
+			
+		</div>
+	  </div>
+	  
+
+	     
+	  <div class="row">
+	    <div class="col-md-10 offset-md-1">
+		<br>
+		    <h3>2.Search</h3>
+			<p class="lead2">Users can query interested interacting proteins and one or multiple phosphorylation sites by clicking the "<font color="#F39925"><strong>Search</strong></font>" button.</p>
+			<img src="{{ url_for('static', filename='img/search.png') }}" class="img-fluid mx-auto d-block" width="95%"/>	
+	    </div>
+	  </div>
+
+
+	  <div class="row">
+	    <div class="col-md-10 offset-md-1">
+		<br>
+		    <h3>3.Queue</h3>
+			<p class="lead2">Users can easily track the status of submitted jobs. Users can only submit <font color=red><strong>10</strong></font> jobs at a time.</p>
+			<img src="{{ url_for('static', filename='img/queue.png') }}" class="img-fluid mx-auto d-block" width="95%"/>	
+	    </div>
+	  </div>
+
+	  
+ 
+	  
+	  <div class="row">
+	    <div class="col-md-10 offset-md-1">
+		<br>
+		    <h3>4.Results</h3>
+			<p class="lead2">Click the provided <font color="#117341"><strong>URL</strong></font>, the detailed results will be shown in a new page, which includes four sections:</p>
+			<p class="lead2"><strong>(1)Statistics of phosphorylated sites</strong></p>
+			<img src="{{ url_for('static', filename='img/result1.png') }}" class="img-fluid mx-auto d-block" width="95%"/>
+			<br>
+			<p class="lead2"><strong>(2)Effect of Site-specific Phosphorylation on Protein-Protein Interaction</strong></p>
+			<img src="{{ url_for('static', filename='img/result2.png') }}" class="img-fluid mx-auto d-block" width="95%"/>
+			<br>
+			<p class="lead2"><strong>(3)Secondary Structure Probability of Phosphorylated Protein</strong></p>
+			<img src="{{ url_for('static', filename='img/result3.png') }}" class="img-fluid mx-auto d-block" width="95%"/>
+			<br>
+			
+			<p class="lead2"><strong>(4)Absolute Surface Accessibility(ASA) of Phosphorylated Protein</strong></p>
+			<img src="{{ url_for('static', filename='img/result4.png') }}" class="img-fluid mx-auto d-block" width="95%"/>
+								
+	   </div>
+	  </div>
+	  
+	  
+	  
+	  <div class="row">
+	    <div class="col-md-10 offset-md-1">
+		<br>
+		   <h3>5.Contact</h3>
+          <p class="lead2">PhosPPI codes has been deposited in GitHub repository: <a href="https://github.com/HFChenLab/PTMint" target="_blank" class="ccc"><strong>PhosPPI</strong></a>.<br>
+		  Note: PhosPPI is <font color=red><strong>ONLY free</strong></font> for academic research!<br>
+		  We are very glad to obtain any feedbacks, suggestions, or comments about PhosPPI Web Server from global users! Don't hesitate to <a href="/Contact" target="_blank" class="ccc"><strong>contact us</strong></a>!</p>
+        </div>
+      </div>		
+	  
+	  
+	  <div class="row">
+	    <div class="col-md-10 offset-md-1">
+		   <h3>6.Citation</h3>
+          <p class="lead2">When refering to PhosPPI, please cite: </p>
+        </div>
+      </div>		
+		 
+
+	
+	
+</div>
+
+
+  
+{%- endblock content %}
