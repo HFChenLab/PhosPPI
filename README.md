@@ -14,14 +14,13 @@ A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predict
 
 2. Install Web Service Python packages
 * pip install 
-  * Flask=2.0.2
-  * Flask-WTF=1.0.0
+  * Flask=1.1.2
+  * Flask-WTF=1.1.1
   * WTForms=3.0.1
   * Flask-Bootstrap=3.3.7.1
-  * Jinja2=3.0.3
-  * pandas=1.4.1
-  * gunicorn=20.1.0
-  * plotnine=0.8.0
+  * Jinja2=2.11.3
+  * pandas=1.2.3
+  * gunicorn=19.9.0
 		
 		
 3. Other packages no need to install (*latest version up to 2022-02-16*; best to install them as network connection from China may fail)
@@ -33,5 +32,8 @@ A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predict
 *https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/
 
 5. Install Machine Learning Python packages
+* pip install sklearn=0.0
+* pip install lightgbm=3.3.3
+
 
 
