@@ -1,7 +1,7 @@
 # PhosPPI
 A web service (PhosPPI) for **Sequence-based Machine Learning Method for Predicting the Effects of Phosphorylation on Protein-Protein Interactions** created by *Xiaokun Hong, Jiyang Lv*
 
-Hong X, Lv J, Li Z, Xiong Y, Zhang J*, Chen HF*. Sequence-based machine learning method for predicting the effects of phosphorylation on protein-protein interactions. Int J Biol Macromol. 2023 Jul 15;243:125233. doi: 10.1016/j.ijbiomac.2023.125233. Epub 2023 Jun 6. PMID: 37290543.
+Citation: Hong X, Lv J, Li Z, Xiong Y, Zhang J*, Chen HF*. Sequence-based machine learning method for predicting the effects of phosphorylation on protein-protein interactions. Int J Biol Macromol. 2023 Jul 15;243:125233. doi: 10.1016/j.ijbiomac.2023.125233. Epub 2023 Jun 6. PMID: 37290543.
 
 ## Set up environment
 
